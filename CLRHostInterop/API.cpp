@@ -44,3 +44,15 @@ int API::GetMaxFPS()
 {
     return ::API->GetMaxFPS();
 }
+
+void API::SetSceneName(System::String^ sceneName, bool bPost)
+{
+	TCHAR* unmanagedstring = (TCHAR *)Marshal::StringToHGlobalAuto(sceneName).ToPointer();
+	clrHostApi->SetSceneName(unmanagedstring, bPost);
+	Marshal::FreeHGlobal((System::IntPtr)unmanagedstring);
+}
+
+System::String^ API::GetSceneName()
+{
+	return gcnew System::String(clrHostApi->GetSceneName());
+}

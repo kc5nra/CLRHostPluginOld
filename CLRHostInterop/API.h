@@ -47,5 +47,8 @@ namespace CLROBS
         System::String^ GetPluginDataPath();
         void SetChangedSettings(bool isChanged);
         int GetMaxFPS();
+
+		void SetSceneName(System::String^ sceneName, bool bPost);
+		System::String^ GetSceneName();
     };
 };

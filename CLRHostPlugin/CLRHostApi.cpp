@@ -127,3 +127,12 @@ void CLRHostApi::AddImageSourceFactory(CLRObjectRef &clrObjectRef)
     }
 
 }
+
+void CLRHostApi::SetSceneName(const TCHAR * sceneName, bool bPost) {
+
+	OBSSetScene(sceneName, bPost);
+}
+
+const TCHAR * CLRHostApi::GetSceneName() {
+	return OBSGetSceneName();
+}
